@@ -1,0 +1,397 @@
+/* header height is defined */
+
+$headerheight: 60px;
+
+html {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  z-index: 0;
+  a {
+    text-decoration: none;
+  }
+}
+
+li {
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  /* header with main menu */
+  > header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    width: 100%;
+    max-height: $headerheight;
+
+    box-sizing: border-box;
+    border-bottom: 1px solid grey;
+
+    /* main nav menu */
+    .main-wrapper {
+
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: nowrap;
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      /* logo */
+      img {
+        height: 60px;
+        max-width: 150px;
+      }
+
+      /*  */
+      nav {
+        box-sizing: border-box;
+
+        ul {
+          display: flex;
+          flex-flow: row nowrap;
+          height: 100%;
+
+          box-sizing: border-box;
+
+          li {
+
+            font-weight: 500;
+            font-size: 1.1em;
+            box-sizing: border-box;
+            #site-search {
+              margin: 5px 10px;
+              width: fit-content;
+              display: block;
+              background-color: rgba(128, 128, 128, 0.4);
+              color: black;
+              height: 80%;
+              #search-icon {
+                color: rgb(0, 0, 0);
+              }
+              &:hover {
+                color: white;
+                background-color: black;
+              }
+            }
+
+            &:last-child {
+              position: absolute;
+              right: 0;
+              height: $headerheight;
+              box-sizing: border-box;
+
+              a {
+                display: inline-block;
+                color: blue;
+                padding: 10px;
+
+
+                &:hover {
+                  box-shadow: inset 0 5px 0 0 blue;
+                }
+              }
+            }
+
+            a {
+              display: inline-block;
+              padding: 10px;
+
+              height: 100%;
+              box-sizing: border-box;
+
+              &:hover {
+                box-shadow: inset 0 5px 0 0 black;
+                /* border-top: 3px solid rgb(0, 0, 0); */
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    /* first column of flex, with quick access */
+    > .pratique {
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 20%;
+      font-size: 0.8em;
+
+      #section-pratique {
+        padding: 20px;
+        padding-top: 20px;
+        font-weight: 600;
+        font-size: 1.5em;
+        justify-content: center;
+      }
+      nav {
+        ul {
+          justify-content: center;
+        }
+        /* menu with buttons */
+        .quick-access-top {
+          text-transform: uppercase;
+          text-align: center;
+          font-size: 0.8em;
+          padding: 5px;
+
+          .quick-access-button {
+            margin: 5px;
+            padding: 10px;
+            width: fit-content;
+            display: inline-block;
+            background-color: rgba(128, 128, 128, 0.2);
+            text-decoration: none;
+            color: black;
+            [class^="demo-icon"] {
+              color: blue;
+            }
+            &:hover {
+              [class^="demo-icon"] {
+                color: rgb(90, 90, 253);
+              }
+            }
+          }
+
+          .quick-access-button-carte {
+            background-color: none;
+            color: rgb(255, 0, 0);
+            width: fit-content;
+            text-transform: uppercase;
+            font-size: 1.1em;
+            padding: 10px;
+
+            &:hover {
+              color: rgb(255, 255, 255);
+              background-color: red;
+            }
+          }
+        }
+
+        /* menu with icons */
+        #access-bottom {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+        }
+        .access_bottom {
+          background-color: rgba(0, 0, 0, 0);
+          position: relative;
+          text-align: left;
+          font-size: 1em;
+          box-sizing: border-box;
+          padding: 15px;
+          display: inline-block;
+          li {
+            border-bottom: 1px solid grey;
+          }
+          [class^="demo-icon"] {
+            position: absolute 0, -1, 0, 0;
+            border-radius: 25px;
+            padding: 10px;
+            margin: 15px;
+            margin-left: 2px;
+            color: rgb(0, 0, 0);
+            background-color: rgba(255, 255, 255, 0);
+          }
+
+          &:hover {
+            box-shadow: inset 0 5px 0 0 rgb(0, 0, 0);
+            [class^="demo-icon"] {
+              color: rgb(255, 255, 255);
+              background-color: black;
+            }
+          }
+        }
+      }
+    }
+
+    /* 2nd column of flex with news */
+    .news {
+      width: 50%;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+      #main-article {
+        position: relative;
+        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+        width: 100%;
+        background-color: darkgreen;
+        overflow: hidden;
+        img {
+          width: 100%;
+          &:hover {
+            transform: scale(1.1);
+            transition: transform 0.1s;
+          }
+        }
+
+        #info-main-article {
+          max-width: 70%;
+          background-color: rgb(234, 255, 0);
+          position: relative;
+          margin-left: auto;
+          margin-right: auto;
+          z-index: 0;
+          padding: 10px;
+          #featured {
+            color: white;
+            background-color: red;
+            text-transform: uppercase;
+            width: fit-content;
+            font-size: 0.7em;
+            padding: 10px;
+            position: absolute;
+            top: -10px;
+            left: 10%;
+            z-index: 0;
+          }
+          > h3 {
+            margin-top: 20px;
+            font-size: 2em;
+          }
+        }
+      }
+
+      h3 {
+        font-size: 1.2em;
+        font-weight: 600;
+      }
+    }
+
+    /* 3rd column of flex with telex */
+    .telex {
+      width: 20%;
+      max-width: 200px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 0.9em;
+      .telex_unit {
+        display: flex;
+        flex-direction: row;
+        time {
+          font-size: 2em;
+        }
+        [class^="demo-icon"] {
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 150px;
+    max-height: 100px;
+  }
+  .footer-red {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 10px;
+    color: red;
+    width: fit-content;
+    &:hover {
+      color: white;
+      background-color: red;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+  #footer-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    #footer-left-top {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+    }
+
+    #footer-left-middle {
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+      }
+      li {
+        text-align: center;
+      }
+    }
+
+    #footer-left-bottom {
+      padding: 0 50px;
+ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+    }
+  }
+
+  #footer-right {
+    background-color: midnightblue;
+    color: white;
+    gap : 20px;
+    padding: 10px;
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    [class^="demo-icon"] {
+      color: white;
+      &:hover {
+        color: red;
+      }
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-around;
+    align-items: center;
+    button {
+      color: white;
+      background-color: red;
+      &:hover {
+        color: red;
+        background-color: white;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap:20px;
+    }
+  }
+}
